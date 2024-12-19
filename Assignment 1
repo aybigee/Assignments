@@ -1,0 +1,22 @@
+import math
+
+points = [(1, 2), (4, 6), (7, 8), (10, 12)]
+
+def euclideanDistance(point1, point2):
+    x1, y1 = point1
+    x2, y2 = point2
+    return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+
+distances = []
+
+for i in range(len(points)):
+    for j in range(i + 1, len(points)):  # i ile j'yi birbirinden farklı seç
+        dist = euclideanDistance(points[i], points[j])
+        distances.append(dist)
+
+print("Hesaplanan Mesafeler:")
+for d in distances:
+    print(f"{d:.2f}")
+
+min_distance = min(distances)
+print(f"\nEn küçük mesafe: {min_distance:.2f}")
